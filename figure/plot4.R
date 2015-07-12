@@ -16,11 +16,11 @@ dataHouseHold <- mutate(dataHouseHold, Date = as.Date(Date, "%d/%m/%Y"))
 ##Create dataframe with elements required for the exercise - baseR
 dataHouseHold <- subset(dataHouseHold, Date >= '2007-02-01' & Date <= '2007-02-02')
 
-##Merge Date and Time chars into a timeDate class - timeDate
-DateTime <- timeDate(paste(dataHouseHold$Date, dataHouseHold$Time))
+        ##Merge Date and Time chars into a timeDate class - timeDate
+        DateTime <- timeDate(paste(dataHouseHold$Date, dataHouseHold$Time))
 
-##Transform into POSIXct type - baseR
-DateTime <- as.POSIXct(DateTime,"%Y/%m/%d %H:%M:%S", tz = "GMT")
+        ##Transform into POSIXct type - baseR
+        DateTime <- as.POSIXct(DateTime,"%Y/%m/%d %H:%M:%S", tz = "GMT")
 
 ##Insert new class into Date column - dplyr
 dataHouseHold <- mutate(dataHouseHold, Date = DateTime)
